@@ -61,7 +61,12 @@
                 resultBox.innerHTML = "❌ Please enter a city name!";
                 return;
             }
-            const apiKey = "d3fb97fe816f43ae619fd2450817bf12";
+            const apiKey = localStorage.getItem('weatherApiKey') || prompt('Please enter your OpenWeather API key:');
+            if (!apiKey) {
+                resultBox.innerHTML = "❌ API key is required!";
+                return;
+            }
+            localStorage.setItem('weatherApiKey', apiKey);
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
             try {
                 const response = await fetch(url);
