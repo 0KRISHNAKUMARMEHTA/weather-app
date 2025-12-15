@@ -58,12 +58,12 @@
             const resultBox = document.getElementById("result");
 
             if(city.trim() === ""){
-                resultBox.innerHTML = "❌ Please enter a city name!";
+                resultBox.innerHTML = "Please enter a city name!";
                 return;
             }
             const apiKey = localStorage.getItem('weatherApiKey') || prompt('Please enter your OpenWeather API key:');
             if (!apiKey) {
-                resultBox.innerHTML = "❌ API key is required!";
+                resultBox.innerHTML = "API key is required!";
                 return;
             }
             localStorage.setItem('weatherApiKey', apiKey);
@@ -81,7 +81,7 @@
                 `;
             } 
             catch (error) {
-                resultBox.innerHTML = "❌ Invalid city name! Please try again.";
+                resultBox.innerHTML = "Invalid city name! Please try again.";
             }
         }
     </script>
